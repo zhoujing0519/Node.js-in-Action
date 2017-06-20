@@ -69,13 +69,13 @@ var http = require('http'), // 内置的http模块提供了HTTP服务器和客�
 		}
 
 		// 设置绝对路径
-		absPath = './' + filePath;
+		absPath = '../' + filePath;
 
 		// 返回静态文件
 		serveStatic(response, cache, absPath);
 	});
 
 	// 让服务器监听TCP/IP端口3000
-	server.listen(3000, function(){
-		console.log("Server listening on port 3000.");
+	server.listen(8080, function(){
+		console.log("Server listening on port 8080.");
 	});
