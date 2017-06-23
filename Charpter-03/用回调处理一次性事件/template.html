@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		button{
+			position: fixed;
+			right: 20px;
+			bottom: 220px;
+			font-size: 60px;
+			line-height: 0.25;
+			width: 1em;
+			height: 1em;
+			background-color: #fff;
+			border: 1px solid #dadbde;
+			border-radius: 0.1em;
+			outline: none;
+			cursor: pointer;
+		}
+
+		button::after{
+			content: "";
+			display: inline-block;
+			width: 0.25em;
+			height: 0.25em;
+			border-left: 2px solid #dadbde;
+			border-bottom: 2px solid #dadbde;
+			-webkit-transform: rotate(135deg);
+			-moz-transform: rotate(135deg);
+			-ms-transform: rotate(135deg);
+			transform: rotate(135deg);
+		}
+
+		button:hover{
+			border-color: #d7000f;
+			background-color: #d7000f;
+		}
+
+		button:hover::after{
+			border-color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<h1>Latest Posts</h1>
+	<ul><li>%</li></ul>
+
+	<button></button>
+</body>
+</html>

@@ -4,7 +4,8 @@ var http = require('http'), // 内置的http模块提供了HTTP服务器和客�
 	mime = require('mime'), // 附加的mine模块，有根据文件扩展名得出MIME类型的能力
 
 	cache = {}, // cache是用来缓存文件内容的对象
-	server = null; // 服务器
+	server = null, // 服务器
+	chatServer = require('./lib/chat_server'); // 用来处理基于Socket.IO的服务端聊天功能
 
 // Functions..................................................................................
 
@@ -69,7 +70,7 @@ var http = require('http'), // 内置的http模块提供了HTTP服务器和客�
 		}
 
 		// 设置绝对路径
-		absPath = '../' + filePath;
+		absPath = './' + filePath;
 
 		// 返回静态文件
 		serveStatic(response, cache, absPath);
@@ -79,3 +80,6 @@ var http = require('http'), // 内置的http模块提供了HTTP服务器和客�
 	server.listen(8080, function(){
 		console.log("Server listening on port 8080.");
 	});
+
+	// 启动Socket.IO服务器，给它提供一个定义好的HTTP服务器，这样它就能跟HTTP服务器共享同一个TCP/IP端口
+	chatServer.listen(server);
